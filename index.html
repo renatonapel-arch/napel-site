@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Napel Nacional Peças — Autopeças para Caminhões e Carretas</title>
+<meta name="description" content="Distribuidora de autopeças para caminhões e carretas há 43 anos: freios, suspensão e acessórios, com pronta-entrega e envio para todo o Brasil. Cotação em minutos no WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['Archivo', 'system-ui', 'sans-serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          navy: { 950:'#06283d', 900:'#082E49', 800:'#0A3C5F', 700:'#0F405F', 600:'#15506f', 500:'#1d6489' },
+          sky:  { 700:'#2f7cbf', 600:'#3f8bcf', 500:'#74A9D7', 400:'#93bce0', 300:'#bcd7ec', 100:'#e7f1fa' },
+          steel:'#7DA4C6',
+          ink:  '#0c1f2c',
+        },
+        boxShadow: {
+          card: '0 1px 2px rgba(8,46,73,.04), 0 12px 32px -12px rgba(8,46,73,.18)',
+          soft: '0 1px 2px rgba(8,46,73,.05), 0 8px 24px -14px rgba(8,46,73,.25)',
+          cta:  '0 10px 30px -8px rgba(31,124,224,.55)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root{ --ease:cubic-bezier(.16,1,.3,1); }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',system-ui,sans-serif; color:#1a2b38; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:#74A9D7; color:#082E49; }
+  .font-display{ font-family:'Archivo',system-ui,sans-serif; letter-spacing:-.02em; }
+  .tnum{ font-variant-numeric:tabular-nums; }
+
+  /* molecule / network motif background */
+  .mesh{
+    background-image:
+      radial-gradient(circle at 18% 22%, rgba(116,169,215,.16), transparent 38%),
+      radial-gradient(circle at 82% 8%, rgba(116,169,215,.12), transparent 34%),
+      radial-gradient(circle at 60% 92%, rgba(13,62,96,.55), transparent 46%);
+  }
+  .dotgrid{
+    background-image:radial-gradient(rgba(116,169,215,.16) 1.1px, transparent 1.1px);
+    background-size:22px 22px;
+  }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease); will-change:opacity,transform; }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal-x{ opacity:0; transform:translateX(-26px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+  .reveal-x.in{ opacity:1; transform:none; }
+
+  /* header */
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#2f7cbf; transition:width .3s var(--ease); border-radius:2px; }
+  .nav-link:hover::after{ width:100%; }
+
+  /* card hover */
+  .lift{ transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease); }
+  .lift:hover{ transform:translateY(-6px); }
+
+  /* marquee */
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  .marquee-track{ display:flex; width:max-content; animation:marquee 38s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+
+  /* whatsapp pulse */
+  @keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(37,211,102,.55);} 70%{ box-shadow:0 0 0 18px rgba(37,211,102,0);} 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+  .pulse{ animation:pulse 2.4s infinite; }
+
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+  .floaty{ animation:floaty 7s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.reveal-x{ opacity:1 !important; transform:none !important; transition:none; }
+    .marquee-track{ animation:none; }
+    .pulse{ animation:none; }
+    .floaty{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body class="bg-white">
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="hidden md:block bg-navy-900 text-sky-100/90 text-[13px]">
+  <div class="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <a href="mailto:contato@napel.com.br" class="flex items-center gap-2 hover:text-white transition-colors">
+        <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 7.5A1.5 1.5 0 014.5 6h15A1.5 1.5 0 0121 7.5v9A1.5 1.5 0 0119.5 18h-15A1.5 1.5 0 013 16.5v-9z"/></svg>
+        contato@napel.com.br
+      </a>
+      <span class="flex items-center gap-2 text-sky-100/70">
+        <svg class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>
+        Seg–Sex 08:00–18:00 · Sáb 08:00–12:00
+      </span>
+    </div>
+    <div class="flex items-center gap-5 text-sky-100/80">
+      <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 3 lojas · envio para todo o Brasil</span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.979z"/></svg>
+        Atendimento por WhatsApp
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="header" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
+    <a href="#top" class="flex items-center shrink-0" aria-label="Napel — página inicial">
+      <img src="assets/logo-mark-t.svg" alt="Napel Nacional Peças" class="h-9 w-auto" />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-navy-900">
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#sobre" class="nav-link">Quem Somos</a>
+      <a href="#produtos" class="nav-link">Produtos</a>
+      <a href="#lojas" class="nav-link">Localização</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="#contato" class="nav-link">Contato</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/5544991227026" target="_blank" rel="noopener"
+         class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-sky-700 to-sky-600 px-5 py-2.5 text-[14px] font-semibold text-white shadow-cta hover:from-sky-600 hover:to-sky-500 transition-all duration-300 hover:-translate-y-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5M21 12a8.5 8.5 0 01-12.4 7.5L3 21l1.5-5.6A8.5 8.5 0 1121 12z"/></svg>
+        Solicitar Cotação
+      </a>
+      <button id="menuBtn" class="lg:hidden p-2 text-navy-900" aria-label="Abrir menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-slate-100 bg-white">
+    <nav class="px-6 py-4 flex flex-col gap-1 text-[15px] font-medium text-navy-900">
+      <a href="#top" class="py-2.5 border-b border-slate-50">Home</a>
+      <a href="#sobre" class="py-2.5 border-b border-slate-50">Quem Somos</a>
+      <a href="#produtos" class="py-2.5 border-b border-slate-50">Produtos</a>
+      <a href="#lojas" class="py-2.5 border-b border-slate-50">Localização</a>
+      <a href="blog.html" class="py-2.5 border-b border-slate-50">Blog</a>
+      <a href="#contato" class="py-2.5">Contato</a>
+      <a href="https://wa.me/5544991227026" target="_blank" rel="noopener" class="mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-700 px-5 py-3 text-white font-semibold">Solicitar Cotação</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden bg-navy-900 text-white">
+  <div class="absolute inset-0">
+    <img src="assets/galpao.jpg" alt="" class="w-full h-full object-cover opacity-25" />
+    <div class="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900/95 to-navy-800/90"></div>
+    <div class="absolute inset-0 mesh"></div>
+    <div class="absolute inset-0 dotgrid opacity-40"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-24 lg:pt-28 lg:pb-32">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7">
+        <div class="reveal inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-[13px] font-semibold text-sky-300 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+          Distribuidora de autopeças há 43 anos
+        </div>
+        <h1 class="reveal font-display text-4xl sm:text-5xl lg:text-[58px] leading-[1.04] font-800 text-white mb-6" style="font-weight:800">
+          Peças para caminhão e carreta,
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-steel">direto da distribuidora.</span>
+        </h1>
+        <p class="reveal text-lg text-sky-100/80 max-w-xl mb-8 leading-relaxed">
+          Freios, suspensão e acessórios com pronta-entrega e preço sem intermediários.
+          Cotação em minutos pelo WhatsApp — se a gente não tem, ninguém tem na região.
+        </p>
+        <div class="reveal flex flex-wrap items-center gap-4 mb-10">
+          <a href="https://wa.me/5544991227026" target="_blank" rel="noopener"
+             class="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 px-7 py-4 text-[15px] font-bold text-navy-950 shadow-cta hover:-translate-y-0.5 transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+            Solicitar cotação agora
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#produtos" class="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-4 text-[15px] font-semibold text-white hover:bg-white/5 transition-colors">
+            Ver produtos
+          </a>
+        </div>
+        <div class="reveal flex flex-wrap items-center gap-x-7 gap-y-3 text-[14px] text-sky-100/70">
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Pronta-entrega</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Condições para frotistas</span>
+          <span class="flex items-center gap-2"><svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg> Garantia de procedência</span>
+        </div>
+      </div>
+
+      <!-- floating quote card -->
+      <div class="lg:col-span-5 reveal">
+        <div class="floaty relative rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-sm p-7 shadow-2xl">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="grid place-items-center w-11 h-11 rounded-xl bg-sky-500/20 text-sky-300">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h2l1-5h11l1 5h2M5 13v4h14v-4M7 17a1.5 1.5 0 103 0M14 17a1.5 1.5 0 103 0"/></svg>
+            </div>
+            <div>
+              <p class="text-white font-semibold text-[15px]">Cotação relâmpago</p>
+              <p class="text-sky-100/60 text-[13px]">Resposta em minutos no horário comercial</p>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-[14px]">
+              <span class="text-sky-100/80">Categoria</span><span class="text-white font-semibold">Freios · Suspensão</span>
+            </div>
+            <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-[14px]">
+              <span class="text-sky-100/80">Disponibilidade</span><span class="flex items-center gap-1.5 text-emerald-300 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Em estoque</span>
+            </div>
+            <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-[14px]">
+              <span class="text-sky-100/80">Envio</span><span class="text-white font-semibold">Todo o Brasil</span>
+            </div>
+          </div>
+          <a href="https://wa.me/5544991227026" target="_blank" rel="noopener" class="mt-5 flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-5 py-3.5 text-[14px] font-bold text-white transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+            Pedir minha cotação
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- stats strip -->
+  <div class="relative border-t border-white/10 bg-navy-950/40">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+      <div class="reveal py-7 px-4 text-center lg:text-left">
+        <p class="font-display text-4xl font-800 text-white tnum" style="font-weight:800"><span data-count="43">0</span></p>
+        <p class="text-[13px] uppercase tracking-wider text-sky-100/60 mt-1">anos de estrada</p>
+      </div>
+      <div class="reveal py-7 px-4 text-center lg:text-left">
+        <p class="font-display text-4xl font-800 text-white tnum" style="font-weight:800"><span data-count="3">0</span></p>
+        <p class="text-[13px] uppercase tracking-wider text-sky-100/60 mt-1">lojas · PR e BA</p>
+      </div>
+      <div class="reveal py-7 px-4 text-center lg:text-left">
+        <p class="font-display text-4xl font-800 text-white tnum" style="font-weight:800">+<span data-count="50">0</span></p>
+        <p class="text-[13px] uppercase tracking-wider text-sky-100/60 mt-1">marcas e fornecedores</p>
+      </div>
+      <div class="reveal py-7 px-4 text-center lg:text-left">
+        <p class="font-display text-4xl font-800 text-white" style="font-weight:800">BR</p>
+        <p class="text-[13px] uppercase tracking-wider text-sky-100/60 mt-1">envio nacional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUE PROPS ============ -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Por que comprar aqui</p>
+      <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">A peça certa, no momento em que o caminhão precisa rodar.</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- card -->
+      <div class="reveal lift group rounded-2xl border border-slate-100 bg-white p-7 shadow-soft hover:border-sky-200">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-100 text-sky-700 mb-5 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 text-navy-900 mb-2" style="font-weight:700">Atendimento imediato</h3>
+        <p class="text-[15px] text-slate-600 leading-relaxed">Agilidade total para quem está de passagem. Você não perde viagem esperando peça.</p>
+      </div>
+
+      <div class="reveal lift group rounded-2xl border border-slate-100 bg-white p-7 shadow-soft hover:border-sky-200">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-100 text-sky-700 mb-5 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4-9 4-9-4zM3 7v6l9 4 9-4V7M7 9v5"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 text-navy-900 mb-2" style="font-weight:700">Preço de distribuidora</h3>
+        <p class="text-[15px] text-slate-600 leading-relaxed">Direto da fonte, sem intermediários. O valor que cabe na operação de quem vive do frete.</p>
+      </div>
+
+      <div class="reveal lift group rounded-2xl border border-slate-100 bg-white p-7 shadow-soft hover:border-sky-200">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-100 text-sky-700 mb-5 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4zM4 11h16M9 7V5h6v2"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 text-navy-900 mb-2" style="font-weight:700">Variedade absoluta</h3>
+        <p class="text-[15px] text-slate-600 leading-relaxed">Estoque amplo de freios, suspensão e acessórios. Se a gente não tem, ninguém tem na região.</p>
+      </div>
+
+      <div class="reveal lift group rounded-2xl border border-slate-100 bg-white p-7 shadow-soft hover:border-sky-200">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-100 text-sky-700 mb-5 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 text-navy-900 mb-2" style="font-weight:700">Localização estratégica</h3>
+        <p class="text-[15px] text-slate-600 leading-relaxed">Lojas nas principais rodovias, com acesso fácil para o caminhão encostar e resolver.</p>
+      </div>
+
+      <div class="reveal lift group rounded-2xl border border-slate-100 bg-white p-7 shadow-soft hover:border-sky-200">
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-100 text-sky-700 mb-5 group-hover:scale-110 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h4M5 6h14a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 text-navy-900 mb-2" style="font-weight:700">Condições para frotistas</h3>
+        <p class="text-[15px] text-slate-600 leading-relaxed">Parcelamento e condições especiais para frotas e oficinas que compram em volume.</p>
+      </div>
+
+      <div class="reveal lift group rounded-2xl border border-navy-800 bg-navy-900 p-7 shadow-card text-white relative overflow-hidden">
+        <div class="absolute -right-6 -top-6 w-28 h-28 dotgrid opacity-30"></div>
+        <div class="grid place-items-center w-12 h-12 rounded-xl bg-sky-500/20 text-sky-300 mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5-3.4 7.7-8 9-4.6-1.3-8-4-8-9V7l8-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="font-display text-lg font-700 mb-2" style="font-weight:700">Garantia de procedência</h3>
+        <p class="text-[15px] text-sky-100/75 leading-relaxed mb-4">Qualidade e procedência garantidas em todas as peças, das melhores marcas do mercado.</p>
+        <a href="https://wa.me/5544991227026" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sky-300 font-semibold text-[14px] hover:gap-2.5 transition-all">Falar com a Napel <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="produtos" class="py-20 lg:py-28 bg-slate-50/70">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+      <div class="max-w-2xl">
+        <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Peças disponíveis</p>
+        <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Linha completa para o pesado.</h2>
+      </div>
+      <a data-catalog="" class="inline-flex items-center gap-2 text-navy-900 font-semibold hover:text-sky-700 transition-colors whitespace-nowrap cursor-pointer">
+        Ver todas as peças no catálogo <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Suspensão -->
+      <a data-catalog="?cat=suspensao" class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200 block cursor-pointer">
+        <div class="h-2 bg-gradient-to-r from-navy-800 to-sky-600"></div>
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="grid place-items-center w-12 h-12 rounded-xl bg-navy-900 text-sky-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 18c2-1 2-3 0-4s-2-3 0-4 2-3 0-4M19 18c-2-1-2-3 0-4s2-3 0-4 2-3 0-4M5 6h14M5 18h14"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-800 text-navy-900" style="font-weight:800">Suspensão</h3>
+          </div>
+          <ul class="space-y-2.5 text-[15px] text-slate-600">
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Mola semi-elíptica</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Mola pneumática</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Grampo de mola</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Balança</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Bucha de mola</li>
+          </ul>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-navy-900 font-semibold text-[14px] group-hover:text-sky-700 group-hover:gap-2.5 transition-all">Ver peças no catálogo <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Freios -->
+      <a data-catalog="?cat=sistema-de-freio" class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200 block cursor-pointer">
+        <div class="h-2 bg-gradient-to-r from-navy-800 to-sky-600"></div>
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="grid place-items-center w-12 h-12 rounded-xl bg-navy-900 text-sky-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path stroke-linecap="round" d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-800 text-navy-900" style="font-weight:800">Freios</h3>
+          </div>
+          <ul class="space-y-2.5 text-[15px] text-slate-600">
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Lona de freio</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Tambor de freio</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Câmara de freio</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Patim e kit de reparo</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Freios a ar</li>
+          </ul>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-navy-900 font-semibold text-[14px] group-hover:text-sky-700 group-hover:gap-2.5 transition-all">Ver peças no catálogo <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Acessórios -->
+      <a data-catalog="?cat=acessorios" class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200 block cursor-pointer">
+        <div class="h-2 bg-gradient-to-r from-navy-800 to-sky-600"></div>
+        <div class="p-8">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="grid place-items-center w-12 h-12 rounded-xl bg-navy-900 text-sky-400">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 6l4 4-8 8H6v-4l8-8zM13 7l4 4"/></svg>
+            </div>
+            <h3 class="font-display text-2xl font-800 text-navy-900" style="font-weight:800">Acessórios</h3>
+          </div>
+          <ul class="space-y-2.5 text-[15px] text-slate-600">
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Paralamas</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Lanternas</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Apara-barro</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Corote</li>
+            <li class="flex items-center gap-2.5"><span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span> Itens para a cabine</li>
+          </ul>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-navy-900 font-semibold text-[14px] group-hover:text-sky-700 group-hover:gap-2.5 transition-all">Ver peças no catálogo <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED PRODUCTS ============ -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Produtos em destaque</p>
+      <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Os campeões de saída do balcão.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Tambor -->
+      <div class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
+        <div class="relative h-60 bg-gradient-to-br from-slate-100 to-slate-50 grid place-items-center overflow-hidden">
+          <div class="absolute inset-0 dotgrid opacity-30"></div>
+          <img src="assets/prod-tambor.png" alt="Tambor de freio multifuro" class="relative h-44 w-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 rounded-full bg-navy-900 text-white text-[12px] font-semibold px-3 py-1">Freios</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-700 text-navy-900 mb-1.5" style="font-weight:700">Tambor Multifuro</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Alta resistência e compatibilidade ampla de aplicação para carretas e caminhões.</p>
+          <a data-catalog="?cat=sistema-de-freio" class="flex items-center justify-center gap-2 rounded-xl bg-navy-900 hover:bg-navy-800 px-5 py-3 text-white text-[14px] font-semibold transition-colors cursor-pointer">
+            Ver no catálogo
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Balança -->
+      <div class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
+        <div class="relative h-60 bg-gradient-to-br from-slate-100 to-slate-50 grid place-items-center overflow-hidden">
+          <div class="absolute inset-0 dotgrid opacity-30"></div>
+          <img src="assets/prod-balanca.png" alt="Balança Lub-Free" class="relative h-36 w-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 rounded-full bg-navy-900 text-white text-[12px] font-semibold px-3 py-1">Suspensão</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-700 text-navy-900 mb-1.5" style="font-weight:700">Balança Lub-Free</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Tecnologia sem lubrificação: menos manutenção e mais tempo com o caminhão na estrada.</p>
+          <a data-catalog="?q=lub-free" class="flex items-center justify-center gap-2 rounded-xl bg-navy-900 hover:bg-navy-800 px-5 py-3 text-white text-[14px] font-semibold transition-colors cursor-pointer">
+            Ver no catálogo
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mola -->
+      <div class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
+        <div class="relative h-60 bg-gradient-to-br from-slate-100 to-slate-50 grid place-items-center overflow-hidden">
+          <div class="absolute inset-0 dotgrid opacity-30"></div>
+          <img src="assets/prod-mola.png" alt="Mola parabólica" class="relative w-[88%] object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-4 left-4 rounded-full bg-navy-900 text-white text-[12px] font-semibold px-3 py-1">Suspensão</span>
+        </div>
+        <div class="p-7">
+          <h3 class="font-display text-xl font-700 text-navy-900 mb-1.5" style="font-weight:700">Mola Parabólica</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Leveza e durabilidade no eixo, com conforto e estabilidade de rodagem superiores.</p>
+          <a data-catalog="?q=parabolica" class="flex items-center justify-center gap-2 rounded-xl bg-navy-900 hover:bg-navy-800 px-5 py-3 text-white text-[14px] font-semibold transition-colors cursor-pointer">
+            Ver no catálogo
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE (navy band) ============ -->
+<section id="sobre" class="relative py-20 lg:py-28 bg-navy-900 text-white overflow-hidden">
+  <div class="absolute inset-0 mesh opacity-80"></div>
+  <div class="absolute inset-0 dotgrid opacity-20"></div>
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 reveal-x">
+        <p class="text-sky-400 font-semibold text-[14px] uppercase tracking-wider mb-3">Quem somos</p>
+        <h2 class="font-display text-3xl lg:text-[42px] font-800 leading-[1.1] mb-6" style="font-weight:800">43 anos mantendo o transporte rodoviário em movimento.</h2>
+        <p class="text-sky-100/75 text-[16px] leading-relaxed mb-5">
+          Com três lojas no Paraná e na Bahia, a Napel se tornou sinônimo de excelência e qualidade
+          na distribuição de autopeças para caminhões e utilitários — com a maior variedade de marcas,
+          atendimento de verdade e agilidade na entrega.
+        </p>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5 mb-7">
+          <p class="text-[13px] uppercase tracking-wider text-sky-300 font-semibold mb-1.5">Nossa missão</p>
+          <p class="text-white/90 text-[15px] leading-relaxed">Garantir que o transporte rodoviário se mantenha em movimento através da distribuição de peças de reposição.</p>
+        </div>
+        <a href="#contato" class="inline-flex items-center gap-2 rounded-xl bg-white text-navy-900 px-6 py-3.5 text-[15px] font-bold hover:bg-sky-100 transition-colors">
+          Conheça a Napel <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="reveal rounded-2xl border border-white/10 bg-white/[0.06] p-6 lift hover:bg-white/[0.09]">
+            <svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 21v-1a6 6 0 0112 0v1"/></svg>
+            <h3 class="font-display text-lg font-700 mb-2" style="font-weight:700">Atendimento personalizado</h3>
+            <p class="text-[14px] text-sky-100/70 leading-relaxed">Suporte individualizado, focado em entender sua necessidade e dar a solução sob medida.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-white/[0.06] p-6 lift hover:bg-white/[0.09]">
+            <svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5-3.4 7.7-8 9-4.6-1.3-8-4-8-9V7l8-4z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+            <h3 class="font-display text-lg font-700 mb-2" style="font-weight:700">Qualidade garantida</h3>
+            <p class="text-[14px] text-sky-100/70 leading-relaxed">Marcas renomadas, peças de alta performance e procedência conferida item a item.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-white/[0.06] p-6 lift hover:bg-white/[0.09]">
+            <svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h2l1-5h11l1 5h2M5 13v4h14v-4M7 17a1.5 1.5 0 103 0M14 17a1.5 1.5 0 103 0"/></svg>
+            <h3 class="font-display text-lg font-700 mb-2" style="font-weight:700">Compromisso e agilidade</h3>
+            <p class="text-[14px] text-sky-100/70 leading-relaxed">Prazos rigorosos e entregas rápidas para manter sua operação sempre em movimento.</p>
+          </div>
+          <div class="reveal rounded-2xl border border-white/10 bg-white/[0.06] p-6 lift hover:bg-white/[0.09]">
+            <svg class="w-8 h-8 text-sky-400 mb-4" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16v10H4zM4 11h16M8 15h4"/></svg>
+            <h3 class="font-display text-lg font-700 mb-2" style="font-weight:700">Maior variedade</h3>
+            <p class="text-[14px] text-sky-100/70 leading-relaxed">Amplo portfólio: você encontra exatamente a peça certa, seja qual for o modelo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATIONS ============ -->
+<section id="lojas" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Localização estratégica</p>
+      <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight mb-3" style="font-weight:800">Fácil acesso para quem está de passagem.</h2>
+      <p class="text-[16px] text-slate-600">Estamos nas principais vias, em Maringá, Ponta Grossa e Luís Eduardo Magalhães.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Maringá -->
+      <div class="reveal lift rounded-3xl border border-slate-100 bg-white shadow-soft overflow-hidden hover:border-sky-200">
+        <div class="h-1.5 bg-sky-600"></div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 text-sky-700 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span class="text-[13px] font-semibold uppercase tracking-wider">Paraná</span>
+          </div>
+          <h3 class="font-display text-2xl font-800 text-navy-900 mb-1" style="font-weight:800">Maringá</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Matriz · loja de balcão e distribuição</p>
+          <a href="tel:+5544991227026" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] mb-2 hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L20 13l1 4v2a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>
+            <span class="tnum">(44) 99122-7026</span>
+          </a>
+          <a href="https://www.google.com/maps/place/NAPEL/@-23.4187564,-51.9692729,17z/data=!3m1!4b1!4m6!3m5!1s0x94ecd0e7eaacbe97:0xb5aeca3a1c8561fe!8m2!3d-23.4187613!4d-51.966698!16s%2Fg%2F11gzfqsds!5m1!1e4" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Ver no Google Maps
+          </a>
+          <a href="https://wa.me/5544991227026" target="_blank" rel="noopener" class="mt-4 flex items-center justify-center gap-2 rounded-xl border border-slate-200 hover:border-sky-300 hover:bg-sky-50 px-4 py-2.5 text-navy-900 text-[14px] font-semibold transition-colors">Cotação no WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Ponta Grossa -->
+      <div class="reveal lift rounded-3xl border border-slate-100 bg-white shadow-soft overflow-hidden hover:border-sky-200">
+        <div class="h-1.5 bg-sky-600"></div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 text-sky-700 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span class="text-[13px] font-semibold uppercase tracking-wider">Paraná</span>
+          </div>
+          <h3 class="font-display text-2xl font-800 text-navy-900 mb-1" style="font-weight:800">Ponta Grossa</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Loja de balcão e pronta-entrega</p>
+          <a href="tel:+5542998751283" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] mb-2 hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L20 13l1 4v2a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>
+            <span class="tnum">(42) 99875-1283</span>
+          </a>
+          <a href="https://www.google.com/maps/place/NAPEL+Nacional+Pe%C3%A7as+Ltda./@-25.0480403,-50.2359657,17z/data=!3m1!4b1!4m6!3m5!1s0x94e8165a845d6e93:0x9a48943d9e0ad8fc!8m2!3d-25.0480403!4d-50.2359657!16s%2Fg%2F12qgxjm4z!5m1!1e4" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Ver no Google Maps
+          </a>
+          <a href="https://wa.me/5542998751283" target="_blank" rel="noopener" class="mt-4 flex items-center justify-center gap-2 rounded-xl border border-slate-200 hover:border-sky-300 hover:bg-sky-50 px-4 py-2.5 text-navy-900 text-[14px] font-semibold transition-colors">Cotação no WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Luís Eduardo Magalhães -->
+      <div class="reveal lift rounded-3xl border border-slate-100 bg-white shadow-soft overflow-hidden hover:border-sky-200">
+        <div class="h-1.5 bg-sky-600"></div>
+        <div class="p-7">
+          <div class="flex items-center gap-2 text-sky-700 mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span class="text-[13px] font-semibold uppercase tracking-wider">Bahia</span>
+          </div>
+          <h3 class="font-display text-2xl font-800 text-navy-900 mb-1 leading-tight" style="font-weight:800">Luís Eduardo Magalhães</h3>
+          <p class="text-[14px] text-slate-500 mb-5">Polo do agronegócio · oeste baiano</p>
+          <a href="tel:+5577998513756" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] mb-2 hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L20 13l1 4v2a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg>
+            <span class="tnum">(77) 99851-3756</span>
+          </a>
+          <a href="https://www.google.com/maps/place/NAPEL+Nacional+Pe%C3%A7as+Ltda./@-12.0847907,-45.7530223,17z/data=!3m1!4b1!4m6!3m5!1s0x934a70a80804c16f:0xd0509e35ea88f20c!8m2!3d-12.0847907!4d-45.7530223!16s%2Fg%2F11g_g0786!5m1!1e4" target="_blank" rel="noopener" class="flex items-center gap-2.5 text-navy-900 font-semibold text-[15px] hover:text-sky-700 transition-colors">
+            <svg class="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Ver no Google Maps
+          </a>
+          <a href="https://wa.me/5577998513756" target="_blank" rel="noopener" class="mt-4 flex items-center justify-center gap-2 rounded-xl border border-slate-200 hover:border-sky-300 hover:bg-sky-50 px-4 py-2.5 text-navy-900 text-[14px] font-semibold transition-colors">Cotação no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPLIERS MARQUEE ============ -->
+<section class="py-16 bg-slate-50/70 border-y border-slate-100">
+  <div class="max-w-7xl mx-auto px-6 mb-8 text-center reveal">
+    <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-2">Nossos fornecedores</p>
+    <h2 class="font-display text-2xl lg:text-3xl font-800 text-navy-900" style="font-weight:800">Trabalhamos com as melhores marcas do mercado.</h2>
+  </div>
+  <div class="marquee relative overflow-hidden" style="mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)">
+    <div class="marquee-track gap-4">
+      <!-- group repeated twice for seamless loop -->
+      <div class="flex gap-4 pr-4" id="brandSet"></div>
+      <div class="flex gap-4 pr-4" id="brandSet2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal max-w-2xl mb-14">
+      <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Depoimentos</p>
+      <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Quem vive na estrada confia na Napel.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <figure class="reveal lift rounded-3xl border border-slate-100 bg-slate-50/60 p-7 shadow-soft hover:border-sky-200">
+        <div class="flex gap-1 text-sky-500 mb-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg>
+        </div>
+        <blockquote class="text-[15px] text-slate-700 leading-relaxed mb-6">"Quebrei a mola perto de Maringá e em pouco tempo já estava com a peça na mão. Atendimento rápido e preço justo. Salvou minha viagem."</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <div class="grid place-items-center w-11 h-11 rounded-full bg-navy-900 text-sky-300 font-bold">JC</div>
+          <div><p class="font-semibold text-navy-900 text-[15px]">João Carlos</p><p class="text-[13px] text-slate-500">Caminhoneiro autônomo</p></div>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal lift rounded-3xl border border-slate-100 bg-slate-50/60 p-7 shadow-soft hover:border-sky-200">
+        <div class="flex gap-1 text-sky-500 mb-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg>
+        </div>
+        <blockquote class="text-[15px] text-slate-700 leading-relaxed mb-6">"Compro para a frota há anos. Variedade enorme de freio e suspensão, e as condições de pagamento ajudam demais no fluxo de caixa."</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <div class="grid place-items-center w-11 h-11 rounded-full bg-navy-900 text-sky-300 font-bold">MS</div>
+          <div><p class="font-semibold text-navy-900 text-[15px]">Marcos Silva</p><p class="text-[13px] text-slate-500">Gestor de frota</p></div>
+        </figcaption>
+      </figure>
+
+      <figure class="reveal lift rounded-3xl border border-slate-100 bg-slate-50/60 p-7 shadow-soft hover:border-sky-200">
+        <div class="flex gap-1 text-sky-500 mb-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.9L12 17.3 5.1 20.6l1.6-6.9L1.4 9.1l7-.6L12 2z"/></svg>
+        </div>
+        <blockquote class="text-[15px] text-slate-700 leading-relaxed mb-6">"Tenho oficina e a Napel virou meu fornecedor de confiança. Peça de procedência, entrega no prazo e suporte que entende do pesado."</blockquote>
+        <figcaption class="flex items-center gap-3">
+          <div class="grid place-items-center w-11 h-11 rounded-full bg-navy-900 text-sky-300 font-bold">RA</div>
+          <div><p class="font-semibold text-navy-900 text-[15px]">Rafael Alves</p><p class="text-[13px] text-slate-500">Dono de oficina</p></div>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="reveal text-center text-[12px] text-slate-400 mt-8">Depoimentos ilustrativos para o mockup — serão substituídos por avaliações reais de clientes.</p>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section id="contato" class="relative py-20 lg:py-24 overflow-hidden bg-navy-950">
+  <div class="absolute inset-0">
+    <img src="assets/galpao.jpg" alt="" class="w-full h-full object-cover opacity-15" />
+    <div class="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900/95 to-navy-800/90"></div>
+    <div class="absolute inset-0 dotgrid opacity-25"></div>
+  </div>
+  <div class="relative max-w-5xl mx-auto px-6 text-center">
+    <div class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-[13px] font-semibold text-emerald-300 mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Estoque imediato
+    </div>
+    <h2 class="reveal font-display text-3xl sm:text-4xl lg:text-[50px] font-800 text-white leading-[1.08] mb-5" style="font-weight:800">
+      Precisa da peça <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-steel">agora?</span><br class="hidden sm:block" /> A gente resolve.
+    </h2>
+    <p class="reveal text-lg text-sky-100/80 max-w-2xl mx-auto mb-9">
+      Garantia de qualidade e procedência em todas as peças. Mande sua cotação e receba resposta em minutos.
+    </p>
+    <div class="reveal flex flex-wrap items-center justify-center gap-4">
+      <a href="https://wa.me/5544991227026" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 px-8 py-4 text-[16px] font-bold text-white shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        Fazer cotação agora
+      </a>
+      <a href="mailto:contato@napel.com.br" class="inline-flex items-center gap-2 rounded-xl border border-white/25 px-7 py-4 text-[16px] font-semibold text-white hover:bg-white/5 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1z"/></svg>
+        contato@napel.com.br
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="blog" class="bg-navy-950 text-sky-100/70 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+      <div class="lg:col-span-4">
+        <img src="assets/logo-branco.svg" alt="Napel Nacional Peças LTDA" class="h-14 w-auto mb-6" />
+        <p class="text-[15px] leading-relaxed max-w-sm">
+          Garantindo que o transporte rodoviário se mantenha em movimento através da distribuição de peças de reposição. Há 43 anos na estrada.
+        </p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 hover:bg-sky-600 transition-colors" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8.1a3.2 3.2 0 100-6.4 3.2 3.2 0 000 6.4zm6.2-8.3a1.1 1.1 0 11-2.3 0 1.1 1.1 0 012.3 0z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 hover:bg-sky-600 transition-colors" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.6v8h3.6z"/></svg>
+          </a>
+          <a href="#" class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 hover:bg-sky-600 transition-colors" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3V9zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h3 class="text-white font-semibold text-[15px] mb-4">Empresa</h3>
+        <ul class="space-y-3 text-[14px]">
+          <li><a href="#sobre" class="hover:text-sky-300 transition-colors">Sobre nós</a></li>
+          <li><a href="#produtos" class="hover:text-sky-300 transition-colors">Produtos</a></li>
+          <li><a href="#" class="hover:text-sky-300 transition-colors">Política de devolução</a></li>
+          <li><a href="#" class="hover:text-sky-300 transition-colors">Política de privacidade</a></li>
+          <li><a href="#" class="hover:text-sky-300 transition-colors">Termos e condições</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-white font-semibold text-[15px] mb-4">Localização</h3>
+        <ul class="space-y-4 text-[14px]">
+          <li>
+            <a href="https://www.google.com/maps/place/NAPEL/@-23.4187564,-51.9692729,17z/data=!3m1!4b1!4m6!3m5!1s0x94ecd0e7eaacbe97:0xb5aeca3a1c8561fe!8m2!3d-23.4187613!4d-51.966698!16s%2Fg%2F11gzfqsds!5m1!1e4" target="_blank" rel="noopener" class="group flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-500 mt-0.5 shrink-0 group-hover:text-sky-400 transition-colors" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span class="min-w-0">
+                <span class="block font-medium text-sky-100/90 group-hover:text-white transition-colors">Maringá – PR</span>
+                <span class="block text-[13px] text-sky-100/50 tnum">(44) 99122-7026</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps/place/NAPEL+Nacional+Pe%C3%A7as+Ltda./@-25.0480403,-50.2359657,17z/data=!3m1!4b1!4m6!3m5!1s0x94e8165a845d6e93:0x9a48943d9e0ad8fc!8m2!3d-25.0480403!4d-50.2359657!16s%2Fg%2F12qgxjm4z!5m1!1e4" target="_blank" rel="noopener" class="group flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-500 mt-0.5 shrink-0 group-hover:text-sky-400 transition-colors" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span class="min-w-0">
+                <span class="block font-medium text-sky-100/90 group-hover:text-white transition-colors">Ponta Grossa – PR</span>
+                <span class="block text-[13px] text-sky-100/50 tnum">(42) 99875-1283</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps/place/NAPEL+Nacional+Pe%C3%A7as+Ltda./@-12.0847907,-45.7530223,17z/data=!3m1!4b1!4m6!3m5!1s0x934a70a80804c16f:0xd0509e35ea88f20c!8m2!3d-12.0847907!4d-45.7530223!16s%2Fg%2F11g_g0786!5m1!1e4" target="_blank" rel="noopener" class="group flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-500 mt-0.5 shrink-0 group-hover:text-sky-400 transition-colors" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span class="min-w-0">
+                <span class="block font-medium text-sky-100/90 group-hover:text-white transition-colors">Luís Eduardo Magalhães – BA</span>
+                <span class="block text-[13px] text-sky-100/50 tnum">(77) 99851-3756</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-white font-semibold text-[15px] mb-4">Fique por dentro</h3>
+        <p class="text-[14px] mb-4">Envie seu e-mail para receber novidades e ofertas da Napel.</p>
+        <form class="flex flex-col gap-2.5" onsubmit="return false">
+          <input type="email" placeholder="seu@email.com.br" class="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-[14px] text-white placeholder:text-sky-100/40 focus:outline-none focus:border-sky-500 transition-colors" />
+          <button class="rounded-xl bg-sky-600 hover:bg-sky-500 px-5 py-3 text-white text-[14px] font-semibold transition-colors">Inscrever-se</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-7 text-[13px] text-sky-100/50">
+      <p>© 2026 Napel Nacional Peças LTDA. Todos os direitos reservados.</p>
+      <p>CNPJ · Maringá-PR · Ponta Grossa-PR · Luís Eduardo Magalhães-BA</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/5544991227026" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 grid place-items-center w-14 h-14 rounded-full bg-emerald-500 text-white shadow-xl pulse hover:scale-110 transition-transform"
+   aria-label="Falar no WhatsApp">
+  <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.738-.979z"/></svg>
+</a>
+
+<script>
+  // ---------- mobile menu ----------
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // ---------- header scroll state ----------
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('shadow-soft', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // ---------- supplier marquee ----------
+  const brands = ['Canaparts','Brakematic','Boff','Duroline','Belenus','AESA','Delbrake','Amalcaburio','GBR','Cipec','IABV','Alupar','Suspensys','Fontaine','Jost','Cobreq','Continental','Fras-le','Master','Imdepa'];
+  const chip = b => `<span class="grid place-items-center px-7 py-4 rounded-2xl bg-white border border-slate-100 shadow-soft text-navy-900 font-display font-700 text-lg whitespace-nowrap" style="font-weight:700">${b}</span>`;
+  const html = brands.map(chip).join('');
+  document.getElementById('brandSet').innerHTML = html;
+  document.getElementById('brandSet2').innerHTML = html;
+
+  // ---------- scroll reveal + stagger ----------
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal, .reveal-x');
+  if (reduce) {
+    revealEls.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const sibs = [...e.target.parentElement.children].filter(c => c.classList.contains('reveal') || c.classList.contains('reveal-x'));
+          const idx = sibs.indexOf(e.target);
+          e.target.style.transitionDelay = Math.min(idx, 6) * 80 + 'ms';
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // ---------- animated counters ----------
+  const counters = document.querySelectorAll('[data-count]');
+  const animate = (el) => {
+    const target = +el.dataset.count;
+    if (reduce) { el.textContent = target; return; }
+    const dur = 1400; const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const cio = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { animate(e.target); cio.unobserve(e.target); } });
+  }, { threshold: 0.6 });
+  counters.forEach(c => cio.observe(c));
+
+  // ---------- ligação com o catálogo (vitrine → catálogo filtrado) ----------
+  const CATALOG_BASE = location.protocol === 'file:'
+    ? 'file:///C:/Users/Renato/agents/catalogo-mockup/index.html'
+    : 'https://catalogo.napel.com.br/';
+  document.querySelectorAll('[data-catalog]').forEach(a => {
+    a.setAttribute('href', CATALOG_BASE + (a.dataset.catalog || ''));
+  });
+</script>
+</body>
+</html>
