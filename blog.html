@@ -210,7 +210,7 @@
 
   function card(p,i){
     const tc=TOPIC_COLOR[p.topic]||'bg-slate-100 text-slate-700';
-    return `<a href="post.html?slug=${encodeURIComponent(p.slug)}" class="reveal lift group block rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200" style="transition-delay:${Math.min(i,6)*60}ms">
+    return `<a href="blog/${encodeURIComponent(p.slug)}.html" class="reveal lift group block rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200" style="transition-delay:${Math.min(i,6)*60}ms">
       <div class="relative h-52 bg-slate-100 overflow-hidden">
         <img src="${p.cover}" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
         <span class="absolute top-4 left-4 rounded-full text-[12px] font-semibold px-3 py-1 ${tc}">${p.topic}</span>

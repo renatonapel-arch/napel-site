@@ -213,7 +213,7 @@
     document.getElementById('relatedTitle').classList.remove('hidden');
     document.getElementById('related').innerHTML=relList.map(x=>{
       const xc=TOPIC_COLOR[x.topic]||'bg-slate-100 text-slate-700';
-      return `<a href="post.html?slug=${encodeURIComponent(x.slug)}" class="lift group block rounded-2xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
+      return `<a href="/blog/${encodeURIComponent(x.slug)}.html" class="lift group block rounded-2xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
         <div class="relative h-40 bg-slate-100 overflow-hidden"><img src="${x.cover}" alt="" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'"><span class="absolute top-3 left-3 rounded-full text-[11px] font-semibold px-2.5 py-1 ${xc}">${x.topic}</span></div>
         <div class="p-5"><div class="text-[12px] text-slate-400 mb-1.5">${x.date}</div><h3 class="font-display text-[15px] font-700 text-navy-900 leading-snug clamp2 group-hover:text-sky-700 transition-colors" style="font-weight:700">${x.title}</h3></div>
       </a>`;
