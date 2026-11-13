@@ -1,0 +1,65 @@
+/* Etapa 2: compra dentro do site (vitrine, busca única, peças no artigo). Prefixo npl- para não colidir. */
+.npl, .npl * { box-sizing: border-box; }
+.npl { font-family: 'Inter', system-ui, sans-serif; color: #082E49; }
+.npl a { text-decoration: none; color: inherit; }
+.npl a:focus-visible, .npl button:focus-visible, .npl input:focus-visible { outline: 2px solid #2f7cbf; outline-offset: 2px; }
+
+/* ---------- cartão de produto da loja ---------- */
+.npl-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 768px) { .npl-grade { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } }
+.npl-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #E3EBF1; border-radius: 16px; overflow: hidden; transition: border-color .2s; }
+.npl-card:hover { border-color: #93bce0; }
+.npl-foto { display: block; position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #F3F7FA; }
+.npl-foto img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+.npl-corpo { display: flex; flex-direction: column; flex: 1; gap: 6px; padding: 14px 14px 16px; }
+.npl-nome { font-size: 14px; font-weight: 500; line-height: 1.35; color: #0c2433; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.05em; }
+.npl-nome:hover { color: #1f6aa8; }
+.npl-preco { margin-top: auto; padding-top: 4px; font-family: 'Archivo', system-ui, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -.01em; color: #082E49; }
+.npl-preco small { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: #4a6375; margin-right: 3px; }
+.npl-ret { font-size: 12.5px; color: #4a6375; }
+.npl-comprar { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; margin-top: 8px; padding: 0 16px; border-radius: 10px; background: #0A3C5F; color: #fff !important; font-size: 14px; font-weight: 600; transition: background .15s; }
+.npl-comprar:hover { background: #082E49; }
+@media (min-width: 768px) { .npl-corpo { padding: 16px 18px 18px; } .npl-nome { font-size: 15px; } }
+
+/* ---------- busca única (dentro do hero escuro) ---------- */
+.npl-busca { max-width: 720px; margin-bottom: 40px; }
+@media (min-width: 1024px) { .npl-busca { margin-bottom: 56px; } }
+.npl-busca label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; color: #dcecf6; }
+.npl-campo { display: flex; background: #fff; border-radius: 12px; }
+.npl-campo input { flex: 1; min-width: 0; height: 56px; padding: 0 18px; border: 0; border-radius: 12px 0 0 12px; background: transparent; font: 400 16px 'Inter', sans-serif; color: #082E49; }
+.npl-campo input::placeholder { color: #55707F; }
+.npl-campo button { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px; height: 56px; padding: 0 20px; border: 0; border-radius: 0 12px 12px 0; background: #0A3C5F; color: #fff; font: 600 15px 'Inter', sans-serif; cursor: pointer; }
+.npl-campo button:hover { background: #15506f; }
+.npl-campo svg { width: 18px; height: 18px; display: block; }
+.npl-res { margin-top: 8px; background: #fff; border-radius: 12px; overflow: hidden; }
+.npl-res[hidden] { display: none; }
+.npl-aviso { padding: 16px 18px; font-size: 14.5px; line-height: 1.5; color: #33495b; }
+.npl-aviso strong { color: #082E49; }
+.npl-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid #EEF3F6; }
+.npl-item img { flex: 0 0 auto; width: 52px; height: 52px; border-radius: 8px; object-fit: contain; background: #F3F7FA; }
+.npl-item .npl-txt { flex: 1; min-width: 0; }
+.npl-item .npl-t { display: block; font-size: 14px; font-weight: 500; line-height: 1.3; color: #0c2433; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.npl-item .npl-c { display: block; margin-top: 2px; font-size: 12.5px; color: #4a6375; }
+.npl-item .npl-lado { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.npl-item .npl-v { font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 700; color: #082E49; white-space: nowrap; }
+.npl-acao { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 14px; border-radius: 9px; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+.npl-acao.c { background: #0A3C5F; color: #fff !important; }
+.npl-acao.c:hover { background: #082E49; }
+.npl-acao.w { background: #fff; color: #047857 !important; border: 1px solid #9fd3c0; }
+.npl-acao.w:hover { background: #ECFDF5; }
+.npl-mais { display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 12px 16px; background: #F6F9FB; font-size: 14px; font-weight: 600; }
+.npl-mais a { display: inline-flex; align-items: center; min-height: 40px; color: #1f6aa8 !important; }
+.npl-mais a:hover { text-decoration: underline; }
+@media (max-width: 767.98px) {
+  .npl-acao, .npl-mais a { min-height: 48px; }
+  .npl-item .npl-t { min-height: 48px; -webkit-line-clamp: 3; }
+  .npl-item { align-items: flex-start; }
+  .npl-item img { margin-top: 2px; }
+}
+@media (max-width: 479.98px) { .npl-campo button span { display: none; } .npl-campo button { padding: 0 18px; } .npl-item { padding: 10px 12px; gap: 10px; } }
+
+/* ---------- peças do artigo (blog) ---------- */
+.npl-artigo { max-width: 80rem; margin: 0 auto; padding: 0 24px 64px; }
+.npl-artigo[hidden] { display: none; }
+.npl-artigo h2 { margin: 0 0 6px; font-family: 'Archivo', system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -.02em; color: #082E49; }
+.npl-artigo > p { margin: 0 0 24px; font-size: 15px; color: #4a6375; }

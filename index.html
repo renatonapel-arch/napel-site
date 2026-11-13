@@ -103,6 +103,7 @@
   }
 </style>
 <link rel="stylesheet" href="/assets/napel-nav.css" />
+<link rel="stylesheet" href="/assets/napel-loja.css" />
 </head>
 <body class="bg-white">
 
@@ -191,7 +192,12 @@
     <div class="absolute inset-0 dotgrid opacity-40"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-24 lg:pt-28 lg:pb-32">
+  <div class="relative max-w-7xl mx-auto px-6 pt-8 pb-24 lg:pt-10 lg:pb-32">
+    <form id="npl-busca" class="npl npl-busca" role="search" autocomplete="off">
+      <label for="npl-q">Qual peça você procura?</label>
+      <div class="npl-campo"><input id="npl-q" type="search" placeholder="Código, peça ou aplicação" /><button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Buscar</span></button></div>
+      <div id="npl-res" class="npl-res" hidden aria-live="polite"></div>
+    </form>
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7">
         <div class="reveal inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-[13px] font-semibold text-sky-300 mb-6">
@@ -431,10 +437,14 @@
   <div class="max-w-7xl mx-auto px-6">
     <div class="reveal text-center max-w-2xl mx-auto mb-14">
       <p class="text-sky-700 font-semibold text-[14px] uppercase tracking-wider mb-3">Produtos em destaque</p>
-      <h2 class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Os campeões de saída do balcão.</h2>
+      <h2 data-npl-vitrine-off class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Os campeões de saída do balcão.</h2>
+      <h2 data-npl-vitrine-on hidden class="font-display text-3xl lg:text-[40px] font-800 text-navy-900 leading-tight" style="font-weight:800">Os mais procurados da loja online.</h2>
+      <p data-npl-vitrine-on hidden class="mt-4 text-[16px] text-slate-600">Peças de caminhão e carreta com preço e compra na hora.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div id="npl-vitrine"></div>
+    <div data-npl-vitrine-on hidden class="mt-10 text-center"><a href="https://loja.napel.com.br/?utm_source=site&amp;utm_medium=vitrine" class="inline-flex items-center gap-2 min-h-[48px] text-navy-900 font-semibold hover:text-sky-700 transition-colors">Ver tudo na loja online <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div data-npl-vitrine-off class="grid md:grid-cols-3 gap-6">
       <!-- Tambor -->
       <div class="reveal lift group rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-soft hover:border-sky-200">
         <div class="relative h-60 bg-gradient-to-br from-slate-100 to-slate-50 grid place-items-center overflow-hidden">
@@ -885,5 +895,7 @@
   <a class="npb-wa" href="https://wa.me/5544991227026" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg> Cotação</a>
 </div>
 <script src="/assets/napel-nav.js" defer></script>
+<script>window.NAPEL_LOJA={origem:'site',json:'https://loja.napel.com.br/?napel_feed=site',produtosJs:'https://catalogo.napel.com.br/products.js',catalogoImg:'https://catalogo.napel.com.br/',semFoto:'https://catalogo.napel.com.br/placeholder-card.svg',catalogo:'https://catalogo.napel.com.br/',loja:'https://loja.napel.com.br/'};</script>
+<script src="/assets/napel-loja.js" defer></script>
 </body>
 </html>
